@@ -29,13 +29,15 @@
 				Propietario: 
 					{{apellido_pat + ' ' + apellido_mat + ' ' + nombre}}
 					<br>
-					Monto en el monedero: {{monto}}
+					Monto en el monedero: {{monto | currency}}
 			</div>
 			<div class="form-group">
 			 	<label for="monto">Monto:</label>
-				<input required class="form-control" id = "monto" type = "text" ng-change = "limpia_mensaje()" ng-model = "monedero.monto" placeholder = "monto"/>
+
+
+				<input required class="form-control" id = "monto" type = "text" ng-change = "limpia_mensaje()" ng-model = "monedero.monto" placeholder = "monto" real-time-currency/>
 			</div> 
-				
+
 			<div class="form-group">
 			 	<label for="promocion">Promoción:</label>
 			   	<select class="form-control" id = "promocion" ng-change = "obten_promocion()" ng-model="promociones.select">

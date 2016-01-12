@@ -709,7 +709,7 @@ app.controller('homeCtrl',function($scope,servidor,$window,token){
 	               	closeOnConfirm: true 
 	           	},
 	           	function(){
-					servidor.set_monedero($scope.monedero.id_monedero,nuevo_monto,function(response){
+					servidor.set_monedero($scope.monedero.ticket,$scope.monedero.id_monedero,nuevo_monto,function(response){
 						console.log(response);
 						switch(response.status){
 							case 200:
