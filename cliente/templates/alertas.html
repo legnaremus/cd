@@ -1,0 +1,35 @@
+
+<h1> Alertas </h1>
+
+<label for="password">Contraseña de administrador:</label>
+
+<input id = "password" type = "text" ng-model = "password" placeholder = "password" /><br>
+
+<button ng-click = "activa()"> Guardar cambios </button>
+
+<table class="table table-condensed">
+ 
+	<thead>
+		<tr>
+		<th scope="col">Id monedero</th>
+	 	<th scope="col">Id usuario</th>
+		<th scope="col">Monto</th>
+	    <th scope="col">Fecha transaccion</th>
+	    <th scope="col">Estado activado</th>
+	   </tr>
+	</thead>
+
+	<tbody>
+	   <tr ng-repeat = "registro in alertas track by $index">
+			<td>{{registro.id_monedero}}</td>
+	     	<td>{{registro.id_usuario}}</td>
+			<td>{{registro.monto| currency:'$':2}}</td>
+	     	<td>{{registro.fecha_transaccion }}</td>
+	     	<td><input type = "checkbox" ng-model = "registro.estado"/> </td>
+	   </tr>
+	</tbody>
+
+</table>
+
+<p class="text-error" ng-if = "message_error">{{message_error}}</p>
+<p class="text-success" ng-if = "message_ok">{{message_ok}}</p>

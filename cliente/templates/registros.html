@@ -1,0 +1,35 @@
+
+<div class="jumbotron">
+	<h1> Registros </h1>
+</div>
+<div class="row">
+	<form action="" class="form form-inline col-sm-10 col-sm-offset-1">
+		<div class="form-group">
+			<label for="id_monedero">Id monedero:</label>
+			<input class="form-control" type = "text" id = "id_monedero" ng-model = "filtro.id_monedero" placeholder = "id monedero" ng-change = "actualiza_datos()"/>
+		</div>
+		<div class="form-group">
+			<label for="fecha">fecha:</label>
+			<input class="form-control" type = "date" ng-model = "filtro.fecha" placeholder = "fecha"  ng-change = "actualiza_datos()"/>
+		</div>
+	</form>
+</div>
+<br>
+<div class="table-responsive col-sm-10 col-sm-offset-1">
+	<table class="table table-condensed">
+		<thead>
+			<th scope="col">Id monedero</th>
+		 	<th scope="col">Id usuario</th>
+			<th scope="col">Monto</th>
+		    <th scope="col">Fecha transaccion</th>
+		</thead>
+		<tbody>
+		   <tr ng-repeat = "registro in transacciones track by $index">
+				<td>{{registro.id_monedero}}</td>
+		     	<td>{{registro.id_usuario}}</td>
+				<td>{{registro.monto| currency:'$':2}}</td>
+		     	<td>{{registro.fecha_transaccion }}</td>
+		   </tr>
+		</tbody>
+	</table>
+</div>
